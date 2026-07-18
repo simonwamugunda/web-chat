@@ -25,7 +25,7 @@ export default function App() {
       {/* Green background strip behind the app on desktop */}
       <div className="appBackgroundStrip" />
       
-      <div className="appShell">
+      <div className={`appShell ${selectedRoomId ? 'appShell--room-selected' : ''}`}>
         {user ? (
           <>
             <Sidebar
@@ -39,6 +39,7 @@ export default function App() {
                 roomId={selectedRoomId}
                 user={user}
                 onRequireRoom={() => {}}
+                onBack={() => setSelectedRoomId(null)}
               />
             </div>
           </>
